@@ -1,0 +1,10 @@
+<app-nav></app-nav>
+
+<div class="container">
+  <div class="card" style="width: 18rem;" *ngFor="let item of list | async | reverse" >
+    <div class="card-body">
+      <h5 class="card-title">{{item.name}}</h5>
+      <p class="card-text">{{item.text}}</p>
+    </div>
+  </div>
+</div>

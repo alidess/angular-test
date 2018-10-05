@@ -1,0 +1,13 @@
+<app-nav></app-nav>
+
+<div class="container">
+
+  <div class="form-group">
+
+    <input type="text" #nameed placeholder="Name" class="form-control" [value]="names" >
+    <textarea placeholder="Your posts" #posted class="form-control" [value]="text" ></textarea>
+    <button class="btn btn-primary" (click)="edit(nameed.value,posted.value)" >Edit post</button>
+    
+    </div>
+
+</div>

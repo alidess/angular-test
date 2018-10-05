@@ -1,0 +1,13 @@
+<app-nav></app-nav>
+
+<div class="container">
+  <div class="card" style="width: 18rem;" *ngFor="let item of list | async" >
+    <div class="card-body">
+      <h5 class="card-title">{{item.payload.val().name}}</h5>
+      <p class="card-text">{{item.payload.val().text}}</p>
+    </div>
+
+    <button class="btn btn-info" (click)="edit(item.key)" >Edit</button>
+    <button class="btn btn-danger" (click)="delete(item.key)">Delete</button>
+  </div>
+</div>
