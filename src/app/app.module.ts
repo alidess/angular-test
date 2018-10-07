@@ -17,7 +17,7 @@ import { PostsComponent } from './posts/posts.component';
 import { EditComponent } from './edit/edit.component';
 import { NavComponent } from './nav/nav.component';
 import { ReversePipe } from './reverse.pipe';
-
+import { AngularFireStorageModule } from '@angular/fire/storage';
 
 var config = {
   apiKey: "AIzaSyDOsd8iOpeHJsY2-kwGmFnAbb_y_nIqwv8",
@@ -47,7 +47,8 @@ var config = {
     AppRoutingModule,
     AngularFireModule.initializeApp(config),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    AngularFireStorageModule
   ],
   providers: [],
   bootstrap: [AppComponent]

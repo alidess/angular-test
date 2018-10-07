@@ -7,7 +7,13 @@
     <input type="password" #password class="form-control" id="exampleInputPassword1" placeholder="Password">
   </div>
   
-  <button type="submit" (click)="singup(email.value,password.value)" class="btn btn-primary">Submit</button>
+  <div class="form-group">
+    <input type="text" #name class="form-control" id="exampleInputPassword1" placeholder="Full-name">
+  </div>
+  
+  
+
+  <button type="submit" (click)="singup(email.value,password.value,name.value)" class="btn btn-primary">Submit</button>
 
   <div class="alert alert-danger" role="alert">
     A simple danger alert—check it out!

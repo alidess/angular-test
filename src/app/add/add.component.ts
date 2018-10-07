@@ -13,7 +13,8 @@ export class AddComponent implements OnInit {
 
 
   email;
-
+  image;
+  name;
 
   constructor(public db : AngularFireDatabase, public auth : AngularFireAuth,
     public router : Router) {
@@ -22,7 +23,13 @@ export class AddComponent implements OnInit {
 
     auth.authState.subscribe(user => {
       if(user != undefined){
-        this.email = user.email
+        this.email = user.email;
+        
+      db.list("users",ref=>ref.orderByChild("email").equalTo(user.email)).valueChanges().subscribe(data => {
+        this.image = data[0]['image'];
+        this.name = data[0]['name'];
+      })
+
       }
     })
 
@@ -31,11 +38,12 @@ export class AddComponent implements OnInit {
   ngOnInit() {
   }
 
-  add(name,text){
+  add(text){
     this.db.list("posts").push({
-      name:name,
+      name:this.name,
       text:text,
-      email:this.email
+      email:this.email,
+      image:this.image
     }).then( ()=> {
      this.router.navigate(['/posts'])
     })
