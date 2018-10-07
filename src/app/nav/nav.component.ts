@@ -73,13 +73,14 @@ export class NavComponent implements OnInit {
             image:url
           }).then(  ()=> {
             sub2.unsubscribe();
-            
+
            var sub = this.db.list("posts",ref=>ref.orderByChild("email").equalTo(this.email)).snapshotChanges().subscribe(allpost => {
               allpost.forEach(posts => {
                 this.db.list("posts").update(posts.key,{
                   image:url
                 }).then( ()=> {
                  sub.unsubscribe();
+                 
                 })
               })
             })
